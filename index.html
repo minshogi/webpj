@@ -1,30 +1,9 @@
 <!DOCTYPE html>
 <html>
-<!-- 그냥 추가해본 주석 -->
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
-    <!-- Add some CSS to change client UI -->
-    <style>
-        body {
-            background-color: #232F3E;
-        }
-        
-        label,
-        button {
-            color: #FF9900;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
-            margin-left: 40px;
-        }
-        
-        input {
-            color: #232F3E;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
-            margin-left: 20px;
-        }
-    </style>
+    <title>Our first web</title>
+    <link href="./style.css" rel="stylesheet">
     <script>
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (firstName, lastName) => {
@@ -63,6 +42,28 @@
         <!-- set button onClick method to call function we defined passing input values as parameters -->
         <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
     </form>
+    <main>
+        <label> 현재 쌓인 스택값 입력(0-90):</label>
+        <div>
+            <input type="number" id = "stacks" name="stacks" min="0" max="90">
+        </div>
+        
+        <p>원하는 캐릭터를 직전에 뽑았나요?</p>
+        <div>
+            <input type="checkbox" id="getpic" name="getpic" checked>
+            <label for="getpic">뽑았음</label>
+        </div>
+         <label> 지를 수 있는 가챠 수(0-):</label>
+        <div>
+            <input type="number" id = "gacha" name="gacha" min="0">
+        </div>
+         <label> 뽑고자 하는 픽업캐 돌파 수(명함 = 1) :</label>
+        <div>
+            <input type="number" id = "ndol" name="ndol" min="0">
+        </div>
+        
+        
+    </main>
 </body>
 <body>
     <form>
