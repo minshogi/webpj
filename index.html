@@ -29,6 +29,15 @@
             .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
+        }  
+        var callProbAPI = (stacks, getpic, gacha, ndol) =>
+        {
+            var raw = JSON.stringify({
+                "stacks": stacks,
+                "getpic": getpic,
+                "gacha": gacha,
+                "ndol":ndol
+            });
         }
     </script>
 </head>
@@ -50,7 +59,7 @@
         
         <p>원하는 캐릭터를 직전에 뽑았나요?</p>
         <div>
-            <input type="checkbox" id="getpic" name="getpic" checked>
+            <input type="checkbox" id="getpic" name="getpic">
             <label for="getpic">뽑았음</label>
         </div>
          <label> 지를 수 있는 가챠 수(0-):</label>
@@ -61,16 +70,10 @@
         <div>
             <input type="number" id = "ndol" name="ndol" min="0">
         </div>
-        
+        <div>
+        <button type="button" onclick="callProbAPI(document.getElementById('stacks').value,document.getElementById('getpic').value,document.getElementById('gacha').value,document.getElementById('ndol').value)">Call Probability</button>
+        </div> 
         
     </main>
 </body>
-<body>
-    <form>
-        <label>Just do it</label>
-        <input type="number" id="fnum">
-    </form>
-</body>
-
-
 </html>
