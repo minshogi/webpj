@@ -44,6 +44,7 @@
 
 <body>
     <form>
+        <p>Please insert your name</p>
         <label>First Name :</label>
         <input type="text" id="fName">
         <label>Last Name :</label>
@@ -52,6 +53,7 @@
         <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
     </form>
     <main>
+        <p>원신-가챠확률계산</p>
         <label> 현재 쌓인 스택값 입력(0-90):</label>
         <div>
             <input type="number" id = "stacks" name="stacks" min="0" max="90">
@@ -62,11 +64,11 @@
             <input type="checkbox" id="getpic" name="getpic">
             <label for="getpic">뽑았음</label>
         </div>
-         <label> 지를 수 있는 가챠 수(0-):</label>
+         <label> 지를 수 있는 가챠 수(0 이상):</label>
         <div>
             <input type="number" id = "gacha" name="gacha" min="0">
         </div>
-         <label> 뽑고자 하는 픽업캐 돌파 수(명함 = 1) :</label>
+         <label> 뽑고자 하는 픽업캐 돌파 수(명함 = 1, 0이상) :</label>
         <div>
             <input type="number" id = "ndol" name="ndol" min="0">
         </div>
