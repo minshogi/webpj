@@ -6,6 +6,13 @@
     <title>Our first web</title>
     <link href="./style.css" rel="stylesheet">
     <script>
+        function getPicChk(box) {
+            if(box.checked == true) {
+                checked.value = "Y";
+            } else {
+                checked.value = "N";
+            }
+        }
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (firstName, lastName) => {
             // instantiate a headers object
@@ -79,7 +86,7 @@
 
         <p>원하는 캐릭터를 직전에 뽑았나요?</p>
         <div>
-            <input type="checkbox" id="getpic" name="getpic" value="Y">
+            <input type="checkbox" id="getpic" name="getpic" value="N" onclick="getPicChk(this)">
             <label for="getpic">뽑았음</label>
         </div>
         <label> 지를 수 있는 가챠 수(1 이상):</label>
