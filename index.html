@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Our first web</title>
@@ -26,18 +27,33 @@
             // make API call with parameters and use promises to get response
             fetch("https://hcmrqlwa0h.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
 
-            .then(response => response.text())
+                .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
-        }  
-        var callProbAPI = (stacks, getpic, gacha, ndol) =>
-        {
+        }
+        var callProbAPI = (stack, getpic, gacha, ndol) => {
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+
             var raw = JSON.stringify({
-                "stacks": stacks,
+                "stack": stack,
                 "getpic": getpic,
                 "gacha": gacha,
-                "ndol":ndol
+                "ndol": ndol
             });
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("https://9yk70p7cxg.execute-api.us-west-2.amazonaws.com/test", requestOptions)
+                .then(response => response.text())
+                .then(result => alert(JSON.parse(result).body))
+                .catch(error => console.log('error', error));
+
         }
     </script>
 </head>
@@ -50,32 +66,37 @@
         <label>Last Name :</label>
         <input type="text" id="lName">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
+        <button type="button"
+            onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call
+            API</button>
     </form>
     <main>
         <p>원신-가챠확률계산</p>
         <label> 현재 쌓인 스택값 입력(0-89):</label>
         <div>
-            <input type="number" id = "stacks" name="stacks" min="0" max="89">
+            <input type="number" id="stack" name="stack" min="0" max="89">
         </div>
-        
+
         <p>원하는 캐릭터를 직전에 뽑았나요?</p>
         <div>
-            <input type="checkbox" id="getpic" name="getpic">
+            <input type="checkbox" id="getpic" name="getpic" value="Y">
             <label for="getpic">뽑았음</label>
         </div>
-         <label> 지를 수 있는 가챠 수(1 이상):</label>
+        <label> 지를 수 있는 가챠 수(1 이상):</label>
         <div>
-            <input type="number" id = "gacha" name="gacha" min="1">
+            <input type="number" id="gacha" name="gacha" min="1">
         </div>
-         <label> 뽑고자 하는 픽업캐 돌파 수(명함 = 1, 1-7) :</label>
+        <label> 뽑고자 하는 픽업캐 돌파 수(명함 = 1, 1-7) :</label>
         <div>
-            <input type="number" id = "ndol" name="ndol" min="1" max="7">
+            <input type="number" id="ndol" name="ndol" min="1" max="7">
         </div>
         <div>
-        <button type="button" onclick="callProbAPI(document.getElementById('stacks').value,document.getElementById('getpic').value,document.getElementById('gacha').value,document.getElementById('ndol').value)">Call Probability</button>
-        </div> 
-        
+            <button type="button"
+                onclick="callProbAPI(document.getElementById('stack').value,document.getElementById('getpic').value,document.getElementById('gacha').value,document.getElementById('ndol').value)">Call
+                Probability</button>
+        </div>
+
     </main>
 </body>
+
 </html>
