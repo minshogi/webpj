@@ -56,7 +56,7 @@
                 redirect: 'follow'
             };
 
-            fetch("https://9yk70p7cxg.execute-api.us-west-2.amazonaws.com/test", requestOptions)
+            fetch("https://9yk70p7cxg.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
                 .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
@@ -65,20 +65,17 @@
     </script>
 </head>
 
+<title>
+    <p id="gachatitle">
+        원신 - 가챠확률계산
+    </p>
+</title>
+
 <body>
-    <form>
-        <p>Please insert your name</p>
-        <label>First Name :</label>
-        <input type="text" id="fName">
-        <label>Last Name :</label>
-        <input type="text" id="lName">
-        <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button"
-            onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call
-            API</button>
-    </form>
     <main>
-        <p>원신-가챠확률계산</p>
+        <p id="gachatitle">
+            원신 - 가챠확률계산
+        </p>
         <label> 현재 쌓인 스택값 입력(0-89):</label>
         <div>
             <input type="number" id="stack" name="stack" min="0" max="89">
