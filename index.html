@@ -56,7 +56,7 @@
                 redirect: 'follow'
             };
 
-            fetch("https://lidhe3k5wh.execute-api.ap-northeast-2.amazonaws.com/probdev", requestOptions)
+            fetch("https://9yk70p7cxg.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
                 .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
